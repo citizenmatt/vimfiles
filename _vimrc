@@ -1,14 +1,3 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Dec 17
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -18,6 +7,11 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+filetype off
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+filetype plugin indent on
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -25,14 +19,31 @@ set nobackup		" do not keep a backup file, use versions instead
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set showmode		" show the input mode in the footer
+set visualbell
+set scrolloff=2
+set autoindent
+set wildmenu		" Display a menu of wildcard choices on tab completion
+set wildmode=list:longest
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set relativenumber	" show line numbers centred around the current line
 
+set incsearch		" do incremental searching
+set ignorecase
+set smartcase       " ignore nore case unless you use upper case
+set showmatch       " show matching bracket when entered
+
+set clipboard=unnamed
+
+" Use <leader><space> to disable search highlighting (leader is \ by default)
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Use F2 to paste without formatting
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
-set showmode
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -52,8 +63,6 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
-
-call pathogen#runtime_append_all_bundles()
 
 set background=light
 colorscheme solarized
@@ -90,6 +99,9 @@ if has("autocmd")
   au BufRead,BufNewFile	*.config	setfiletype xml
   au BufRead,BufNewFile	*.xaml		setfiletype xml
 
+  " Auto save when losing focus - this doesn't seem to work with a new buffer
+  au FocusLost * :wa
+
   augroup END
 
 else
@@ -106,14 +118,4 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-set clipboard=unnamed
-set shiftwidth=2
-set ignorecase
-set smartcase
-set scrolloff=2
-
 let g:ruby_path = ':C:\ruby192\bin'
-
-" Hide the toolbar
-set go-=T
-

@@ -60,6 +60,7 @@ endif
 
 set guifont=Consolas:h8:cDEFAULT
 set lines=44 columns=132
+set guioptions-=T	" hide the toolbar
 set cursorline
 
 " :hi CursorLine   cterm=NONE ctermbg=LightBlue ctermfg=white guibg=LightYellow guifg=DarkRed

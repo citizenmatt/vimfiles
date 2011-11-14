@@ -58,6 +58,9 @@ if version >= 500
 
 endif
 
+set background=light
+colorscheme solarized
+
 set guifont=Consolas:h8:cDEFAULT
 set lines=44 columns=132
 set guioptions-=T	" hide the toolbar
@@ -68,6 +71,9 @@ set cursorline
 
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
+
+" turn on visualbell, but prevent it flashing the screen
+set vb t_vb=
 
 map <C-Tab> :tabnext<CR>
 map <C-S-Tab> :tabprev<CR>

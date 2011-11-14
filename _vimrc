@@ -20,7 +20,6 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set showmode		" show the input mode in the footer
-set visualbell
 set scrolloff=2
 set autoindent
 set wildmenu		" Display a menu of wildcard choices on tab completion
@@ -30,6 +29,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set relativenumber	" show line numbers centred around the current line
+
+" disable errorbell, turn on visualbell, but prevent it flashing the screen
+set noeb vb t_vb=
 
 set incsearch		" do incremental searching
 set ignorecase
@@ -63,9 +65,6 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
-
-set background=light
-colorscheme solarized
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")

@@ -15,6 +15,9 @@ filetype plugin indent on
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+" put the swap file in %TEMP%. The extra backslashes cause a unique filename
+set directory=$TEMP\\\
+
 set nobackup		" do not keep a backup file, use versions instead
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time

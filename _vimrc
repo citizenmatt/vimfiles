@@ -103,8 +103,8 @@ if has("autocmd")
   autocmd BufRead,BufNewFile	*.xaml		setfiletype xml
   autocmd BufRead,BufNewFile	*.DotSettings		setfiletype xml
 
-  " Auto save when losing focus - this doesn't seem to work with a new buffer
-  autocmd FocusLost * :wa
+  " Auto save when losing focus, silently ignoring failures (untitled files)
+  autocmd FocusLost * silent! :wa
 
   augroup END
 

@@ -77,10 +77,11 @@ if has("autocmd")
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
-  au!
+  autocmd!
 
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
+  autocmd FileType notes setlocal linebreak
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -92,14 +93,15 @@ if has("autocmd")
     \   exe "normal! g`\"" |
     \ endif
 
-  au BufRead,BufNewFile	*.build		setfiletype xml
-  au BufRead,BufNewFile	*.targets	setfiletype xml
-  au BufRead,BufNewFile	*.nunit		setfiletype xml
-  au BufRead,BufNewFile	*.config	setfiletype xml
-  au BufRead,BufNewFile	*.xaml		setfiletype xml
+  autocmd BufRead,BufNewFile	*.build		setfiletype xml
+  autocmd BufRead,BufNewFile	*.targets	setfiletype xml
+  autocmd BufRead,BufNewFile	*.nunit		setfiletype xml
+  autocmd BufRead,BufNewFile	*.config	setfiletype xml
+  autocmd BufRead,BufNewFile	*.xaml		setfiletype xml
+  autocmd BufRead,BufNewFile	*.DotSettings		setfiletype xml
 
   " Auto save when losing focus - this doesn't seem to work with a new buffer
-  au FocusLost * :wa
+  autocmd FocusLost * :wa
 
   augroup END
 

@@ -41,7 +41,12 @@ set ignorecase
 set smartcase       " ignore nore case unless you use upper case
 set showmatch       " show matching bracket when entered
 
-set clipboard=unnamed
+set clipboard=unnamed   " wire the system clipboard to the unnamed register
+
+" all alt to handle the menu shortcuts, and also vim command mappings
+" map alt+space to allow opening the system menu
+set winaltkeys=menu
+map <A-Space> :simalt ~<CR>
 
 " Use <leader><space> to disable search highlighting (leader is \ by default)
 nnoremap <leader><space> :nohlsearch<CR>

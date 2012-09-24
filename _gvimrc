@@ -58,10 +58,10 @@ if version >= 500
 
 endif
 
-set background=light
+set background=dark
 colorscheme solarized
 
-set guifont=Consolas:h8:cDEFAULT
+set guifont=Consolas:h10:cDEFAULT
 set lines=44 columns=132
 set guioptions-=T	" hide the toolbar
 set cursorline

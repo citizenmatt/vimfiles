@@ -32,6 +32,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set relativenumber	" show line numbers centred around the current line
+set encoding=utf-8
 
 " disable errorbell, turn on visualbell, but prevent it flashing the screen
 set noeb vb t_vb=
@@ -128,3 +129,6 @@ if !exists(":DiffOrig")
 endif
 
 let g:ruby_path = ':C:\ruby192\bin'
+
+let g:notes_directory = '~\DropBox\vim-notes'
+let g:notes_suffix = '.txt'

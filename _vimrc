@@ -122,5 +122,5 @@ endif
 
 let g:ruby_path = ':C:\ruby192\bin'
 
-let g:notes_directory = '~\DropBox\vim-notes'
+let g:notes_directories = [ '~\DropBox\vim-notes' ]
 let g:notes_suffix = '.txt'

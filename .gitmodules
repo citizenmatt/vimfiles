@@ -34,3 +34,6 @@
 [submodule "bundle/vim-sensible"]
 	path = bundle/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
+[submodule "bundle/vim-ps1"]
+	path = bundle/vim-ps1
+	url = https://github.com/PProvost/vim-ps1.git

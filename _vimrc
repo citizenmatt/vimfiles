@@ -9,23 +9,16 @@ set nocompatible
 
 filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
+execute pathogen#infect()
+syntax on
 filetype plugin indent on
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
 
 " put the swap file in %TEMP%. The extra backslashes cause a unique filename
 set directory=$TEMP\\\
 
 set nobackup		" do not keep a backup file, use versions instead
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
 set showmode		" show the input mode in the footer
 set scrolloff=2
-set autoindent
-set wildmenu		" Display a menu of wildcard choices on tab completion
 set wildmode=list:longest
 set tabstop=4
 set shiftwidth=4
@@ -37,7 +30,6 @@ set encoding=utf-8
 " disable errorbell, turn on visualbell, but prevent it flashing the screen
 set noeb vb t_vb=
 
-set incsearch		" do incremental searching
 set ignorecase
 set smartcase       " ignore nore case unless you use upper case
 set showmatch       " show matching bracket when entered

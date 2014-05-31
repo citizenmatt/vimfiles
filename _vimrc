@@ -14,7 +14,11 @@ syntax on
 filetype plugin indent on
 
 " put the swap file in %TEMP%. The extra backslashes cause a unique filename
-set directory=$TEMP\\\
+if has("unix")
+  set directory=/tmp
+else
+  set directory=$TEMP\\\
+endif
 
 set nobackup		" do not keep a backup file, use versions instead
 set showmode		" show the input mode in the footer
@@ -42,7 +46,7 @@ set winaltkeys=menu
 map <A-Space> :simalt ~<CR>
 
 " Use <leader><space> to disable search highlighting (leader is \ by default)
-nnoremap <leader><space> :nohlsearch<CR>
+" nnoremap <leader><space> :nohlsearch<CR>
 
 " Use F2 to paste without formatting
 nnoremap <F2> :set invpaste paste?<CR>
@@ -122,5 +126,5 @@ endif
 
 let g:ruby_path = ':C:\ruby192\bin'
 
-let g:notes_directories = [ '~\DropBox\vim-notes' ]
+let g:notes_directories = [ '~/DropBox/vim-notes' ]
 let g:notes_suffix = '.txt'

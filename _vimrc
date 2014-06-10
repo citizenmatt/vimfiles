@@ -128,3 +128,10 @@ let g:ruby_path = ':C:\ruby192\bin'
 
 let g:notes_directories = [ '~/DropBox/vim-notes' ]
 let g:notes_suffix = '.txt'
+
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_enter_jump_first = 1
+let g:EasyMotion_space_jump_first = 1
+
+hi link EasyMotionTarget ErrorMsg

@@ -87,6 +87,9 @@ if has("autocmd")
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
   autocmd FileType notes setlocal linebreak
+  autocmd FileType markdown setlocal linebreak
+  autocmd FileType mkd setlocal linebreak
+
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -123,6 +126,8 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+setlocal spell spelllang=en_gb
 
 let g:ruby_path = ':C:\ruby192\bin'
 

@@ -140,3 +140,5 @@ let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
 
 hi link EasyMotionTarget ErrorMsg
+
+let g:vim_markdown_initial_foldlevel=1

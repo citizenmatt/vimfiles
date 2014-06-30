@@ -7,6 +7,16 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Need to set this before importing via pathogen
+if has('win32') && has('gui')
+    let g:airline_powerline_fonts=1
+    " The Powerline Consolas font seems to be missing the whitespace glyph...
+    if (!exists('g:airline_symbols'))
+        let g:airline_symbols = {}
+    endif
+    let g:airline_symbols.whitespace = 'Ξ'
+endif
+
 filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()

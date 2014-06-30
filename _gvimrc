@@ -61,7 +61,13 @@ endif
 set background=dark
 colorscheme solarized
 
-set guifont=Consolas:h10:cDEFAULT
+set encoding=utf-8
+if has('gui_win32')
+    " Patched font from https://github.com/runsisi/consolas-font-for-powerline
+    " Unfortunately missing the whitespace glyph, see _vimrc
+    set guifont=Powerline\ Consolas:h10
+endif
+
 set lines=44 columns=132
 set guioptions-=T	" hide the toolbar
 set cursorline

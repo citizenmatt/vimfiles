@@ -46,3 +46,6 @@
 [submodule "bundle/vim-hilinktrace"]
 	path = bundle/vim-hilinktrace
 	url = https://github.com/gerw/vim-HiLinkTrace
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/bling/vim-airline

@@ -61,3 +61,6 @@
 [submodule "bundle/SearchComplete"]
 	path = bundle/SearchComplete
 	url = https://github.com/vim-scripts/SearchComplete
+[submodule "bundle/argtextobj.vim"]
+	path = bundle/argtextobj.vim
+	url = https://github.com/vim-scripts/argtextobj.vim

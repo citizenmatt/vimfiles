@@ -138,6 +138,7 @@ if !exists(":DiffOrig")
 endif
 
 setlocal spell spelllang=en_gb
+autocmd FileType startify setlocal nospell
 
 let g:ruby_path = ':C:\ruby192\bin'
 
@@ -152,3 +153,5 @@ let g:EasyMotion_space_jump_first = 1
 hi link EasyMotionTarget ErrorMsg
 
 let g:vim_markdown_initial_foldlevel=1
+
+let g:startify_bookmarks = [ '~\vimfiles\_vimrc', '~\vimfiles\_gvimrc' ]

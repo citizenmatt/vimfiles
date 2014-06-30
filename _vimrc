@@ -9,12 +9,15 @@ set nocompatible
 
 " Need to set this before importing via pathogen
 if has('win32') && has('gui')
-    let g:airline_powerline_fonts=1
+    let g:airline_powerline_fonts = 1
     " The Powerline Consolas font seems to be missing the whitespace glyph...
     if (!exists('g:airline_symbols'))
         let g:airline_symbols = {}
     endif
     let g:airline_symbols.whitespace = 'Ξ'
+endif
+if has('gui_macvim')
+    let g:airline_powerline_fonts = 1
 endif
 
 filetype off

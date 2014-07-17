@@ -82,6 +82,9 @@ endif
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
+
+  let g:solarized_termcolors=256
+  colorscheme solarized
 endif
 
 " Only do this part when compiled with support for autocommands.

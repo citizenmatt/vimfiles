@@ -58,9 +58,6 @@ if version >= 500
 
 endif
 
-set background=dark
-colorscheme solarized
-
 set encoding=utf-8
 if has('gui_win32')
     " Patched font from https://github.com/runsisi/consolas-font-for-powerline

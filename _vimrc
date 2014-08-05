@@ -161,3 +161,13 @@ hi link EasyMotionTarget ErrorMsg
 let g:vim_markdown_initial_foldlevel=2
 
 let g:startify_bookmarks = [ '~\vimfiles\_vimrc', '~\vimfiles\_gvimrc' ]
+
+map <silent> <Up> gk
+imap <silent> <Up> <C-o>gk
+map <silent> <Down> gj
+imap <silent> <Down> <C-o>gj
+map <silent> <home> g<home>
+imap <silent> <home> <C-o>g<home>
+map <silent> <End> g<End>
+imap <silent> <End> <C-o>g<End>
+

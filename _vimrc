@@ -144,6 +144,7 @@ if !exists(":DiffOrig")
 endif
 
 setlocal spell spelllang=en_gb
+autocmd BufRead,BufNewFile * setlocal spell
 autocmd FileType startify setlocal nospell
 
 let g:ruby_path = ':C:\ruby192\bin'

@@ -70,3 +70,12 @@
 [submodule "bundle/vim-startify"]
 	path = bundle/vim-startify
 	url = https://github.com/mhinz/vim-startify
+[submodule "bundle/vim-css-color"]
+	path = bundle/vim-css-color
+	url = https://github.com/skammer/vim-css-color
+[submodule "bundle/vim-less"]
+	path = bundle/vim-less
+	url = https://github.com/groenewege/vim-less
+[submodule "bundle/vim-css3-syntax"]
+	path = bundle/vim-css3-syntax
+	url = https://github.com/hail2u/vim-css3-syntax

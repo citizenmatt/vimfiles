@@ -18,3 +18,8 @@ plugin
 or
 MEF
 metadata
+lexer
+Cyclomatic
+cyclomatic
+namespaces
+startup

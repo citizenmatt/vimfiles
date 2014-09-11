@@ -146,6 +146,7 @@ endif
 setlocal spell spelllang=en_gb
 autocmd BufRead,BufNewFile * setlocal spell
 autocmd FileType startify setlocal nospell
+autocmd FileType help setlocal nospell
 
 let g:ruby_path = ':C:\ruby192\bin'
 

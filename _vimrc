@@ -7,6 +7,10 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" This needs to be set to stop vi failing with a git commit
+filetype on
+filetype off
+
 " Need to set this before importing via pathogen
 if has('win32') && has('gui')
     let g:airline_powerline_fonts = 1
@@ -167,6 +171,8 @@ hi link EasyMotionTarget ErrorMsg
 let g:vim_markdown_initial_foldlevel=3
 
 let g:startify_bookmarks = [ '~\vimfiles\_vimrc', '~\vimfiles\_gvimrc' ]
+
+let g:mkd_filetypes_map = { 'csharp': 'cs' }
 
 map <silent> <Up> gk
 imap <silent> <Up> <C-o>gk

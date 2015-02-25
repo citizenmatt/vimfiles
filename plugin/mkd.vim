@@ -1,4 +1,8 @@
 " Heavily based on vim-notes - http://peterodding.com/code/vim/notes/
+if (!exists('g:mkd_filetypes_map'))
+    let g:mkd_filetypes_map = {}
+endif
+
 function! s:Markdown_highlight_sources(force)
     " Syntax highlight source code embedded in notes.
     " Look for code blocks in the current file
@@ -18,10 +22,11 @@ function! s:Markdown_highlight_sources(force)
     let startgroup = 'mkdCodeStart'
     let endgroup = 'mkdCodeEnd'
     for ft in keys(filetypes)
+        let mapped_ft = get(g:mkd_filetypes_map, ft, ft)
         if a:force || !has_key(b:mkd_known_filetypes, ft)
 
             let group = 'mkdSnippet' . toupper(ft)
-            let include = s:syntax_include(ft)
+            let include = s:syntax_include(mapped_ft)
             let command = 'syntax region %s matchgroup=%s start="^\s*```%s$" matchgroup=%s end="^\s*```$" keepend contains=%s%s'
             execute printf(command, group, startgroup, ft, endgroup, include, has('conceal') ? ' concealends' : '')
             execute printf('syntax cluster mkdNonListItem add=%s', group)

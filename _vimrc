@@ -156,6 +156,16 @@ autocmd FileType help setlocal nospell
 " the following line makes vim ignore camelCase and CamelCase words so they are not highlighted as spelling mistakes 
 autocmd Syntax * syn match CamelCase "\(\<\|_\)\%(\u\l*\)\{2,}\(\>\|_\)\|\<\%(\l\l*\)\%(\u\l*\)\{1,}\>" transparent containedin=.*Comment.*,.*String.*,VimwikiLink contains=@NoSpell contained
 
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatusLineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 let g:ruby_path = ':C:\ruby192\bin'
 
 let g:notes_directories = [ '~/DropBox/vim-notes' ]

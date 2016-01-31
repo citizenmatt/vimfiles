@@ -24,6 +24,10 @@ if has('gui_macvim')
     let g:airline_powerline_fonts = 1
 endif
 
+let g:vim_markdown_formatter = 1
+let g:vim_markdown_folding_level = 3
+let g:vim_markdown_folding_disabled = 1
+
 filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
@@ -108,7 +112,6 @@ if has("autocmd")
   autocmd FileType text setlocal textwidth=78
   autocmd FileType notes setlocal linebreak
   autocmd FileType markdown setlocal linebreak
-  autocmd FileType mkd setlocal linebreak
 
 
   " When editing a file, always jump to the last known cursor position.
@@ -177,8 +180,6 @@ let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
 
 hi link EasyMotionTarget ErrorMsg
-
-let g:vim_markdown_initial_foldlevel=3
 
 let g:startify_bookmarks = [ '~\vimfiles\_vimrc', '~\vimfiles\_gvimrc' ]
 

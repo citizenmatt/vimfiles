@@ -194,3 +194,4 @@ imap <silent> <home> <C-o>g<home>
 map <silent> <End> g<End>
 imap <silent> <End> <C-o>g<End>
 
+call camelcasemotion#CreateMotionMappings('<leader>')

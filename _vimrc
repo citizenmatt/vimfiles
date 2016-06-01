@@ -183,7 +183,7 @@ hi link EasyMotionTarget ErrorMsg
 
 let g:startify_bookmarks = [ '~\vimfiles\_vimrc', '~\vimfiles\_gvimrc' ]
 
-let g:mkd_filetypes_map = { 'csharp': 'cs' }
+let g:vim_markdown_fenced_languages = [ 'csharp=cs' ]
 
 map <silent> <Up> gk
 imap <silent> <Up> <C-o>gk

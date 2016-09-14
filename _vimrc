@@ -147,7 +147,7 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+    \ | wincmd p | diffthis
 endif
 
 setlocal spell spelllang=en_gb
@@ -156,7 +156,7 @@ autocmd BufRead,BufNewFile * setlocal spell
 autocmd FileType startify setlocal nospell
 autocmd FileType help setlocal nospell
 " From https://github.com/teranex/dotvim/blob/576680a9f8086f185856c8ab1b9b01ea016f05e9/vimrc#L440
-" the following line makes vim ignore camelCase and CamelCase words so they are not highlighted as spelling mistakes 
+" the following line makes vim ignore camelCase and CamelCase words so they are not highlighted as spelling mistakes
 autocmd Syntax * syn match CamelCase "\(\<\|_\)\%(\u\l*\)\{2,}\(\>\|_\)\|\<\%(\l\l*\)\%(\u\l*\)\{1,}\>" transparent containedin=.*Comment.*,.*String.*,VimwikiLink contains=@NoSpell contained
 
 " syntastic
@@ -181,6 +181,7 @@ let g:EasyMotion_space_jump_first = 1
 
 hi link EasyMotionTarget ErrorMsg
 
+let g:startify_custom_header = []
 let g:startify_bookmarks = [ '~\vimfiles\_vimrc', '~\vimfiles\_gvimrc' ]
 
 let g:vim_markdown_fenced_languages = [ 'csharp=cs' ]

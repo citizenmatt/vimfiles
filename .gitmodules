@@ -91,3 +91,6 @@
 [submodule "bundle/ShaderHighLight"]
 	path = bundle/ShaderHighLight
 	url = https://github.com/vim-scripts/ShaderHighLight.git
+[submodule "bundle/vim-git"]
+	path = bundle/vim-git
+	url = https://github.com/tpope/vim-git.git

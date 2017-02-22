@@ -88,3 +88,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/ShaderHighLight"]
+	path = bundle/ShaderHighLight
+	url = https://github.com/vim-scripts/ShaderHighLight.git

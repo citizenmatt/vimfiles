@@ -64,7 +64,9 @@ if has('gui_win32')
     " Unfortunately missing the whitespace glyph, see _vimrc
     set guifont=Powerline\ Consolas:h10
 elseif has('gui_macvim')
-    set guifont=Liberation\ Mono\ for\ Powerline:h13
+    " set guifont=Liberation\ Mono\ for\ Powerline:h13
+    set guifont=Fira\ Code:h13
+    set macligatures
 endif
 
 set lines=44 columns=132

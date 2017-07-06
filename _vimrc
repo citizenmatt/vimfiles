@@ -196,3 +196,8 @@ map <silent> <End> g<End>
 imap <silent> <End> <C-o>g<End>
 
 call camelcasemotion#CreateMotionMappings('<leader>')
+
+" Use :list to see chars at current list, :set list to see in screen
+" EOL is just shown with the eol char. CRLF is treated as EOL when in
+" dos mode, reload in unix mode to see ^M¶ - :e ++ff=unix
+set listchars=eol:¶,tab:▸·,trail:·,space:·,precedes:«,extends:»,nbsp:¬

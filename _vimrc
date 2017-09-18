@@ -49,7 +49,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-set relativenumber	" show line numbers centred around the current line
+set number relativenumber	" show line numbers centred around the current line
 set encoding=utf-8
 
 " disable errorbell, turn on visualbell, but prevent it flashing the screen

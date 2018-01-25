@@ -27,6 +27,7 @@ endif
 let g:vim_markdown_formatter = 1
 let g:vim_markdown_folding_level = 3
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
 
 filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -43,6 +44,7 @@ endif
 
 set nobackup		" do not keep a backup file, use versions instead
 set showmode		" show the input mode in the footer
+set showcmd         " show current command as you're typing it
 set scrolloff=2
 set wildmode=list:longest
 set tabstop=4
@@ -80,6 +82,14 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
+" https://mobile.twitter.com/vimgifs/status/913390282242232320
+" See `:h i_CTRL-G_u`
+inoremap . .<C-G>u
+inoremap ? ?<C-G>u
+inoremap ! !<C-G>u
+inoremap , ,<C-G>u
+inoremap ` `<C-G>u
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
@@ -93,6 +103,7 @@ if &t_Co > 2 || has("gui_running")
 
   let g:solarized_termcolors=256
   colorscheme solarized
+  set background=dark
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -126,10 +137,14 @@ if has("autocmd")
 
   autocmd BufRead,BufNewFile	*.build		setfiletype xml
   autocmd BufRead,BufNewFile	*.targets	setfiletype xml
+  autocmd BufRead,BufNewFile	*.props		setfiletype xml
   autocmd BufRead,BufNewFile	*.nunit		setfiletype xml
   autocmd BufRead,BufNewFile	*.config	setfiletype xml
   autocmd BufRead,BufNewFile	*.xaml		setfiletype xml
   autocmd BufRead,BufNewFile	*.DotSettings		setfiletype xml
+  autocmd BufRead,BufNewFile	*.*proj		setfiletype xml
+  autocmd BufRead,BufNewFile    *.unity     setfiletype yaml
+  autocmd BufRead,BufNewFile    *.meta      setfiletype yaml
 
   " Auto save when losing focus, silently ignoring failures (untitled files)
   autocmd FocusLost * silent! :wa

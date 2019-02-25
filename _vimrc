@@ -1,7 +1,69 @@
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
-" Need to set this before importing via pathogen
+function! PackagerInit() abort
+
+    let s:packager_dir = expand('~/.vim/pack/packager/opt/vim-packager')
+    if !isdirectory(s:packager_dir)
+        execute '!git clone https://github.com/kristijanhusak/vim-packager ' . s:packager_dir
+    endif
+
+    packadd vim-packager
+
+    call packager#init()
+
+    call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
+
+    call packager#add('tpope/vim-sensible')
+    call packager#add('altercation/vim-colors-solarized')
+    call packager#add('vim-airline/vim-airline')
+    call packager#add('vim-airline/vim-airline-themes')
+
+    call packager#add('editorconfig/editorconfig-vim')
+
+    " Editing
+    call packager#add('bkad/CamelCaseMotion')
+    call packager#add('vim-scripts/SearchComplete')
+    call packager#add('vim-scripts/argtextobj.vim')
+    call packager#add('vim-scripts/closetag.vim')
+    call packager#add('easymotion/vim-easymotion')
+    call packager#add('tpope/vim-repeat')
+    call packager#add('tpope/vim-surround')
+    call packager#add('kana/vim-textobj-user')
+    call packager#add('kana/vim-textobj-lastpat')
+
+    " Features
+    call packager#add('tpope/vim-commentary')
+    call packager#add('sjl/gundo.vim')
+    call packager#add('tpope/vim-git')
+    call packager#add('tpope/vim-fugitive')
+    call packager#add('airblade/vim-gitgutter')
+    call packager#add('xolox/vim-misc')
+    call packager#add('xolox/vim-notes')
+    call packager#add('mhinz/vim-startify')
+    call packager#add('gerw/vim-HiLinkTrace')
+
+    " File types
+    call packager#add('vim-syntastic/syntastic')
+    call packager#add('udalov/kotlin-vim')
+    call packager#add('vim-scripts/ShaderHighLight')
+    call packager#add('leafgarland/typescript-vim')
+    call packager#add('hail2u/vim-css3-syntax')
+    call packager#add('skammer/vim-css-color')
+    call packager#add('groenewege/vim-less')
+    call packager#add('fsharp/vim-fsharp')
+    call packager#add('PProvost/vim-ps1')
+    call packager#add('plasticboy/vim-markdown')
+
+endfunction
+
+command! PackagerInstall call PackagerInit() | call packager#install()
+command! -bang PackagerUpdate call PackagerInit() | call packager#update({ 'force_hooks': '<bang>' })
+command! PackagerClean call PackagerInit() | call packager#clean()
+command! PackagerStatus call PackagerInit() | call packager#status()
+
+
+
 if has('win32') && has('gui')
     let g:airline_powerline_fonts = 1
     " The Powerline Consolas font seems to be missing the whitespace glyph...
@@ -13,17 +75,13 @@ endif
 if has('gui_macvim')
     let g:airline_powerline_fonts = 1
 endif
+let g:airline_theme='dark'
 
 let g:vim_markdown_formatter = 1
 let g:vim_markdown_folding_level = 3
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 
-filetype off
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
 
 " put the swap file in %TEMP%. The extra backslashes cause a unique filename
 if has("unix")
@@ -165,6 +223,8 @@ imap <silent> <home> <C-o>g<home>
 map <silent> <End> g<End>
 imap <silent> <End> <C-o>g<End>
 
+" TODO: Can this be moved to another file so I don't need to call packadd?
+packadd CamelCaseMotion
 call camelcasemotion#CreateMotionMappings('<leader>')
 
 " Use :list to see chars at current list, :set list to see in screen

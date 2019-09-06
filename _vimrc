@@ -3,7 +3,12 @@ source $VIMRUNTIME/defaults.vim
 
 function! PackagerInit() abort
 
-    let s:packager_dir = expand('~/.vim/pack/packager/opt/vim-packager')
+    if has('win32')
+        let s:packager_dir = expand('~/vimfiles/pack/packager/opt/vim-packager')
+    else
+        let s:packager_dir = expand('~/.vim/pack/packager/opt/vim-packager')
+    endif
+
     if !isdirectory(s:packager_dir)
         execute '!git clone https://github.com/kristijanhusak/vim-packager ' . s:packager_dir
     endif

@@ -204,7 +204,11 @@ let g:syntastic_check_on_wq = 0
 
 let g:ruby_path = ':C:\ruby192\bin'
 
-let g:notes_directories = [ '~/Dropbox (Personal)/vim-notes' ]
+if isdirectory('~/Dropbox (Personal)')
+    let g:notes_directories = [ '~/Dropbox (Personal)/vim-notes' ]
+else
+    let g:notes_directories = [ '~/Dropbox/vim-notes' ]
+endif
 let g:notes_suffix = '.txt'
 
 let g:EasyMotion_smartcase = 1
@@ -215,7 +219,11 @@ let g:EasyMotion_space_jump_first = 1
 hi link EasyMotionTarget ErrorMsg
 
 let g:startify_custom_header = []
-let g:startify_bookmarks = [ '~\vimfiles\_vimrc', '~\vimfiles\_gvimrc' ]
+if has('win32')
+    let g:startify_bookmarks = [ '~\vimfiles\vimrc', '~\vimfiles\gvimrc' ]
+else
+    let g:startify_bookmarks = [ '~\.vim\vimrc', '~\.vim\gvimrc' ]
+endif
 
 let g:vim_markdown_fenced_languages = [ 'csharp=cs' ]
 

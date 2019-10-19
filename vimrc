@@ -36,6 +36,10 @@ function! PackagerInit() abort
     call packager#add('tpope/vim-surround')
     call packager#add('kana/vim-textobj-user')
     call packager#add('kana/vim-textobj-lastpat')
+    call packager#add('tommcdo/vim-exchange')
+
+    " ???
+    call packager#add('justinmk/vim-sneak')
 
     " Features
     call packager#add('tpope/vim-commentary')
@@ -46,7 +50,7 @@ function! PackagerInit() abort
     call packager#add('xolox/vim-misc')
     call packager#add('xolox/vim-notes')
     call packager#add('mhinz/vim-startify')
-    call packager#add('gerw/vim-HiLinkTrace')
+    " call packager#add('gerw/vim-HiLinkTrace')
 
     " File types
     call packager#add('vim-syntastic/syntastic')
@@ -105,6 +109,7 @@ set expandtab
 set number relativenumber	" show line numbers centred around the current line
 set encoding=utf-8
 set cursorline
+set shortmess-=S    " Show count of search matches
 
 " disable errorbell, turn on visualbell, but prevent it flashing the screen
 set noeb vb t_vb=
@@ -113,7 +118,7 @@ set ignorecase
 set smartcase       " ignore nore case unless you use upper case
 set showmatch       " show matching bracket when entered
 
-set clipboard=unnamed   " wire the system clipboard to the unnamed register
+set clipboard=unnamed,unnamedplus   " wire the system clipboard to the unnamed register
 
 " all alt to handle the menu shortcuts, and also vim command mappings
 " map alt+space to allow opening the system menu
@@ -204,10 +209,11 @@ let g:syntastic_check_on_wq = 0
 
 let g:ruby_path = ':C:\ruby192\bin'
 
-if isdirectory('~/Dropbox (Personal)')
-    let g:notes_directories = [ '~/Dropbox (Personal)/vim-notes' ]
-else
+" On mac, this check returns false because they're actually links...
+if isdirectory('~/Dropbox/vim-notes')
     let g:notes_directories = [ '~/Dropbox/vim-notes' ]
+else
+    let g:notes_directories = [ '~/Dropbox (Personal)/vim-notes' ]
 endif
 let g:notes_suffix = '.txt'
 
@@ -222,7 +228,7 @@ let g:startify_custom_header = []
 if has('win32')
     let g:startify_bookmarks = [ '~\vimfiles\vimrc', '~\vimfiles\gvimrc' ]
 else
-    let g:startify_bookmarks = [ '~\.vim\vimrc', '~\.vim\gvimrc' ]
+    let g:startify_bookmarks = [ '~/.vim/vimrc', '~/.vim/gvimrc' ]
 endif
 
 let g:vim_markdown_fenced_languages = [ 'csharp=cs' ]
@@ -243,7 +249,8 @@ call camelcasemotion#CreateMotionMappings('<leader>')
 " Use :list to see chars at current list, :set list to see in screen
 " EOL is just shown with the eol char. CRLF is treated as EOL when in
 " dos mode, reload in unix mode to see ^M¶ - :e ++ff=unix
-set listchars=eol:¶,tab:▸·,trail:·,space:·,precedes:«,extends:»,nbsp:¬
+set showbreak=↪\ 
+set listchars=eol:⏎,tab:→\ ,trail:␠,space:·,precedes:«,extends:»,nbsp:⎵
 
 " vim-sensible will actually load matchit for us
 packadd! editexisting

@@ -19,7 +19,8 @@ if has('gui_win32')
     set guifont=Powerline\ Consolas:h10
 elseif has('gui_macvim')
     " set guifont=Liberation\ Mono\ for\ Powerline:h13
-    set guifont=Fira\ Code:h13
+    " set guifont=Fira\ Code:h13
+    set guifont=JetBrainsMono-Regular:h13
     set macligatures
 endif
 

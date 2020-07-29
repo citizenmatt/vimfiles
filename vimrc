@@ -264,10 +264,7 @@ imap <silent> <home> <C-o>g<home>
 map <silent> <End> g<End>
 imap <silent> <End> <C-o>g<End>
 
-" We have to call packadd to load the package before calling the function.
-" If we didn't packadd, it would be added after this file has finished processing
-packadd CamelCaseMotion
-call camelcasemotion#CreateMotionMappings('<leader>')
+let g:camelcasemotion_key='<leader>'
 
 " Use :list to see chars at current list, :set list to see in screen
 " EOL is just shown with the eol char. CRLF is treated as EOL when in

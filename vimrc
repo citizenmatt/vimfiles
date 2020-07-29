@@ -21,12 +21,11 @@ function! PackagerInit() abort
 
     call packager#add('tpope/vim-sensible')
     call packager#add('altercation/vim-colors-solarized')
+    call packager#add('sonph/onehalf', {'rtp': 'vim/'})
     call packager#add('vim-airline/vim-airline')
     call packager#add('vim-airline/vim-airline-themes')
 
-    call packager#add('editorconfig/editorconfig-vim')
-
-    " Editing
+    " Editing and text objects
     call packager#add('bkad/CamelCaseMotion')
     call packager#add('vim-scripts/SearchComplete')
     call packager#add('vim-scripts/argtextobj.vim')
@@ -34,14 +33,16 @@ function! PackagerInit() abort
     call packager#add('easymotion/vim-easymotion')
     call packager#add('tpope/vim-repeat')
     call packager#add('tpope/vim-surround')
-    call packager#add('kana/vim-textobj-user')
+    " call packager#add('kana/vim-textobj-user')
     call packager#add('kana/vim-textobj-lastpat')
     call packager#add('tommcdo/vim-exchange')
+    call packager#add('vim-scripts/ReplaceWithRegister')
 
-    " ???
-    call packager#add('justinmk/vim-sneak')
+    " Alternative to easymotion
+    "call packager#add('justinmk/vim-sneak')
 
     " Features
+    call packager#add('editorconfig/editorconfig-vim')
     call packager#add('tpope/vim-commentary')
     call packager#add('sjl/gundo.vim')
     call packager#add('tpope/vim-git')
@@ -50,7 +51,11 @@ function! PackagerInit() abort
     call packager#add('xolox/vim-misc')
     call packager#add('xolox/vim-notes')
     call packager#add('mhinz/vim-startify')
+    call packager#add('machakann/vim-highlightedyank')
     " call packager#add('gerw/vim-HiLinkTrace')
+
+    " I was planning on some updates. Can't remember what for now...
+    call packager#add('citizenmatt/vim-signature')
 
     " File types
     call packager#add('vim-syntastic/syntastic')
@@ -84,12 +89,12 @@ endif
 if has('gui_macvim')
     let g:airline_powerline_fonts = 1
 endif
-let g:airline_theme='dark'
 
 let g:vim_markdown_formatter = 1
 let g:vim_markdown_folding_level = 3
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_fenced_languages = [ 'csharp=cs' ]
 
 
 " put the swap file in %TEMP%. The extra backslashes cause a unique filename
@@ -146,9 +151,20 @@ inoremap ` `<C-G>u
 if &t_Co > 2 || has("gui_running")
   set hlsearch
 
-  let g:solarized_termcolors=256
-  colorscheme solarized
+  " let g:solarized_termcolors=256
+  " colorscheme solarized
+  " set background=dark
+  " hi MatchParen gui=underline cterm=underline
+  " let g:airline_theme='dark'
+
+  " Onehalf light theme
+  colorscheme onehalfdark
   set background=dark
+  " onehalfdark doesn't distinguish between searhc + current search sonph/onehalf#21
+  hi! link IncSearch PMenuSel
+  hi clear SpellBad
+  hi SpellBad cterm=underline gui=undercurl
+  let g:airline_theme='onehalfdark'
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -177,6 +193,7 @@ if has("autocmd")
   autocmd BufRead,BufNewFile	*.config	setfiletype xml
   autocmd BufRead,BufNewFile	*.xaml		setfiletype xml
   autocmd BufRead,BufNewFile	*.DotSettings		setfiletype xml
+  autocmd BufRead,BufNewFile	*.DotSettings.user	setfiletype xml
   autocmd BufRead,BufNewFile	*.*proj		setfiletype xml
   autocmd BufRead,BufNewFile    *.unity     setfiletype yaml
   autocmd BufRead,BufNewFile    *.meta      setfiletype yaml
@@ -220,9 +237,16 @@ let g:notes_suffix = '.txt'
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_upper = 1
 let g:EasyMotion_enter_jump_first = 1
-let g:EasyMotion_space_jump_first = 1
 
-hi link EasyMotionTarget ErrorMsg
+" Might clash with vim-sneak
+map <Leader><Leader>; <Plug>(easymotion-next)
+map <Leader><Leader>, <Plug>(easymotion-prev)
+
+" Default (red) colours are too tricky to read.
+hi link EasyMotionTarget Search
+hi link EasyMotionTarget2First Search
+hi link EasyMotionTarget2Second Search
+hi link EasyMotionShade Comment
 
 let g:startify_custom_header = []
 if has('win32')
@@ -230,8 +254,6 @@ if has('win32')
 else
     let g:startify_bookmarks = [ '~/.vim/vimrc', '~/.vim/gvimrc' ]
 endif
-
-let g:vim_markdown_fenced_languages = [ 'csharp=cs' ]
 
 map <silent> <Up> gk
 imap <silent> <Up> <C-o>gk
@@ -242,7 +264,8 @@ imap <silent> <home> <C-o>g<home>
 map <silent> <End> g<End>
 imap <silent> <End> <C-o>g<End>
 
-" TODO: Can this be moved to another file so I don't need to call packadd?
+" We have to call packadd to load the package before calling the function.
+" If we didn't packadd, it would be added after this file has finished processing
 packadd CamelCaseMotion
 call camelcasemotion#CreateMotionMappings('<leader>')
 
@@ -255,3 +278,10 @@ set listchars=eol:⏎,tab:→\ ,trail:␠,space:·,precedes:«,extends:»,nbsp:�
 " vim-sensible will actually load matchit for us
 packadd! editexisting
 packadd! matchit
+
+let g:highlightedyank_highlight_duration=250
+
+" let g:SignatureMarkTextHLDynamic=1
+" let g:SignatureMarkerTextHLDynamic=1
+" let g:SignatureIncludeMarks='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.''`^<>[]{}()"'
+" let g:SignatureIncludeMarkers='          '

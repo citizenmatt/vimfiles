@@ -26,6 +26,8 @@ function! PackagerInit() abort
     call packager#add('vim-airline/vim-airline-themes')
 
     " Editing and text objects
+    " See also vim-text-obj-variable-segment (camel case textobj, no motion)
+    " and vim-wordmotion (camel case motions)
     call packager#add('bkad/CamelCaseMotion')
     call packager#add('vim-scripts/SearchComplete')
     call packager#add('vim-scripts/argtextobj.vim')
@@ -33,7 +35,7 @@ function! PackagerInit() abort
     call packager#add('easymotion/vim-easymotion')
     call packager#add('tpope/vim-repeat')
     call packager#add('tpope/vim-surround')
-    " call packager#add('kana/vim-textobj-user')
+    call packager#add('kana/vim-textobj-user') " Required for lastpat
     call packager#add('kana/vim-textobj-lastpat')
     call packager#add('tommcdo/vim-exchange')
     call packager#add('vim-scripts/ReplaceWithRegister')
@@ -269,6 +271,19 @@ map <silent> <End> g<End>
 imap <silent> <End> <C-o>g<End>
 
 let g:camelcasemotion_key='<leader>'
+
+" CamelCaseMotion's motions are great, but the inner motions have some
+" problems as text objects. E.g. vi\w includes trailing underscores and vi\e
+" does not. This should be an inner and around text object. However, the
+" inner motions allow a count, which is useful, and can't easily be done with
+" a straight text object.
+" These maps provide a rough approximation of vim-text-obj-variable-segment.
+" Camel case text object. Possibly unintuitive behaviour with av at the end of
+" an identifier, but good enough.
+xmap iv i\e
+xmap av i\w
+omap iv i\e
+omap av i\w
 
 " Use :list to see chars at current list, :set list to see in screen
 " EOL is just shown with the eol char. CRLF is treated as EOL when in

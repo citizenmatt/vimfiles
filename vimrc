@@ -52,6 +52,10 @@ function! PackagerInit() abort
     call packager#add('xolox/vim-notes')
     call packager#add('mhinz/vim-startify')
     call packager#add('machakann/vim-highlightedyank')
+    " Note that vim-multiple-cursors is deprecated in favour of
+    " vim-visual-multi, but they work differently
+    call packager#add('terryma/vim-multiple-cursors')
+    " call packager#add('mg979/vim-visual-multi')
     " call packager#add('gerw/vim-HiLinkTrace')
 
     " I was planning on some updates. Can't remember what for now...

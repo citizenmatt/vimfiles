@@ -33,6 +33,7 @@ autocmd WinLeave * setlocal nocursorline
 " turn on visualbell, but prevent it flashing the screen
 set vb t_vb=
 
-map <C-Tab> :tabnext<CR>
-map <C-S-Tab> :tabprev<CR>
-map <C-n> :tabnew<CR>
+" <C-n> conflicts with terryma/vim-multiple-cursors
+" map <C-Tab> :tabnext<CR>
+" map <C-S-Tab> :tabprev<CR>
+" map <C-n> :tabnew<CR>

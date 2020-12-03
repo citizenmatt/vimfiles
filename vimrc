@@ -302,3 +302,45 @@ let g:highlightedyank_highlight_duration=250
 " let g:SignatureMarkerTextHLDynamic=1
 " let g:SignatureIncludeMarks='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.''`^<>[]{}()"'
 " let g:SignatureIncludeMarkers='          '
+
+" https://gist.github.com/breandan/ed814aba2cee6d27a0efff655e231b09
+" To only apply these macros in e.g. Python files, prepend 'autocmd FileType py', e.g.:
+" autocmd FileType py inoremap \mu μ
+"
+inoremap \alpha α
+inoremap \beta β
+inoremap \gamma γ
+inoremap \delta δ
+inoremap \epsilon ε
+inoremap \zeta ζ
+inoremap \eta η
+inoremap \theta θ
+inoremap \iota ι
+inoremap \kappa κ
+inoremap \lambda λ
+inoremap \mu μ
+inoremap \nu ν
+inoremap \xi ξ
+inoremap \pi π
+inoremap \rho ρ
+inoremap \sigma σ
+inoremap \tau τ
+inoremap \upsilon υ
+inoremap \phi φ
+inoremap \chi χ
+inoremap \psi ψ
+inoremap \omega ω
+
+inoremap \Gamma Γ
+inoremap \Delta Δ
+inoremap \Lambda Λ
+inoremap \Xi Ξ
+inoremap \Pi Π
+inoremap \Sigma Σ
+inoremap \Upsilon ϒ
+inoremap \Phi Φ
+inoremap \Psi Ψ
+inoremap \Omega Ω
+
+inoremap \nabla ∇
+inoremap \partial ∂

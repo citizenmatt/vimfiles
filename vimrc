@@ -166,10 +166,11 @@ if &t_Co > 2 || has("gui_running")
   " Onehalf light theme
   colorscheme onehalfdark
   set background=dark
-  " onehalfdark doesn't distinguish between searhc + current search sonph/onehalf#21
+  " onehalfdark doesn't distinguish between search + current search sonph/onehalf#21
   hi! link IncSearch PMenuSel
   hi clear SpellBad
   hi SpellBad cterm=underline gui=undercurl
+  hi NonText guifg=darkgrey " wordwrap, whitespace, etc.
   let g:airline_theme='onehalfdark'
 endif
 

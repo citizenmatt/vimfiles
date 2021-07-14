@@ -39,6 +39,7 @@ function! PackagerInit() abort
     call packager#add('kana/vim-textobj-lastpat')
     call packager#add('tommcdo/vim-exchange')
     call packager#add('vim-scripts/ReplaceWithRegister')
+    call packager#add('unblevable/quick-scope')
 
     " Alternative to easymotion
     "call packager#add('justinmk/vim-sneak')
@@ -260,6 +261,14 @@ hi link EasyMotionTarget Search
 hi link EasyMotionTarget2First Search
 hi link EasyMotionTarget2Second Search
 hi link EasyMotionShade Comment
+
+" quick-scope only highlight when about to search, rather than all the time,
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" Toggle only works when highlight_on_keys is not set. If used, it will toggle
+" if the highlight is shown when the key is pressed
+" nmap <leader>q <plug>(QuickScopeToggle)
+" xmap <leader>q <plug>(QuickScopeToggle)
+let g:qs_filetype_blacklist = ['startify']
 
 let g:startify_custom_header = []
 if has('win32')

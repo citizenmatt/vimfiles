@@ -83,6 +83,9 @@ command! PackagerClean call PackagerInit() | call packager#clean()
 command! PackagerStatus call PackagerInit() | call packager#status()
 
 
+" Disable hlsearch when loading
+set viminfo-=h
+
 
 if has('win32') && has('gui')
     let g:airline_powerline_fonts = 1

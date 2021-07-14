@@ -298,6 +298,10 @@ packadd! matchit
 
 let g:highlightedyank_highlight_duration=250
 
+" Avoid default <A-N> and g<A-N> shortcuts, as <A-N> on Mac is a dead key
+let g:multi_cursor_select_all_key='<leader>g<C-N>'
+let g:multi_cursor_select_all_word_key='<leader><C-N>'
+
 " let g:SignatureMarkTextHLDynamic=1
 " let g:SignatureMarkerTextHLDynamic=1
 " let g:SignatureIncludeMarks='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.''`^<>[]{}()"'
@@ -344,3 +348,5 @@ let g:highlightedyank_highlight_duration=250
 " 
 " inoremap \nabla ∇
 " inoremap \partial ∂
+
+

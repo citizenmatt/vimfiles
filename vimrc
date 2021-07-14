@@ -121,6 +121,7 @@ set number relativenumber	" show line numbers centred around the current line
 set encoding=utf-8
 set cursorline
 set shortmess-=S    " Show count of search matches
+" set signcolumn=number
 
 " disable errorbell, turn on visualbell, but prevent it flashing the screen
 set noeb vb t_vb=
@@ -171,6 +172,8 @@ if &t_Co > 2 || has("gui_running")
   hi clear SpellBad
   hi SpellBad cterm=underline gui=undercurl
   hi NonText guifg=darkgrey " wordwrap, whitespace, etc.
+  " Make the line number gutter a bit more distinctive
+  hi LineNr guibg=#24222a
   let g:airline_theme='onehalfdark'
 endif
 

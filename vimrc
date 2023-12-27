@@ -45,7 +45,6 @@ function! PackagerInit() abort
     "call packager#add('justinmk/vim-sneak')
 
     " Features
-    call packager#add('editorconfig/editorconfig-vim')
     call packager#add('tpope/vim-commentary')
     call packager#add('sjl/gundo.vim')
     call packager#add('tpope/vim-git')
@@ -309,6 +308,7 @@ set listchars=eol:⏎,tab:→\ ,trail:␠,space:·,precedes:«,extends:»,nbsp:�
 
 " vim-sensible will actually load matchit for us
 packadd! editexisting
+packadd! editorconfig
 packadd! matchit
 
 let g:highlightedyank_highlight_duration=250

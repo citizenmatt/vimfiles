@@ -37,6 +37,8 @@ function! PackagerInit() abort
     call packager#add('tpope/vim-surround')
     call packager#add('kana/vim-textobj-user') " Required for lastpat
     call packager#add('kana/vim-textobj-lastpat')
+    call packager#add('kana/vim-textobj-line')
+    call packager#add('kana/vim-textobj-entire')
     call packager#add('tommcdo/vim-exchange')
     call packager#add('vim-scripts/ReplaceWithRegister')
     call packager#add('unblevable/quick-scope')

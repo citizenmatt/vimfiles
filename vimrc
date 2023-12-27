@@ -375,4 +375,11 @@ let g:multi_cursor_select_all_word_key='<leader><C-N>'
 " inoremap \nabla ∇
 " inoremap \partial ∂
 
+nnoremap gX :set opfunc=Redact<CR>g@
+nnoremap gx :set opfunc=funcref('Redact')<CR>g@
+xnoremap gx <Esc>:set opfunc=Redact<CR>gvg@
+
+function! Redact(type)
+    execute "normal `[v`]rx"
+endfunction
 

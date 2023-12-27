@@ -91,17 +91,25 @@ command! PackagerStatus call PackagerInit() | call packager#status()
 set viminfo-=h
 
 
+if (!exists('g:airline_symbols'))
+    let g:airline_symbols = {}
+endif
 if has('win32') && has('gui')
     let g:airline_powerline_fonts = 1
     " The Powerline Consolas font seems to be missing the whitespace glyph...
-    if (!exists('g:airline_symbols'))
-        let g:airline_symbols = {}
-    endif
-    let g:airline_symbols.whitespace = 'Ξ'
+    "let g:airline_symbols.whitespace = 'Ξ'
 endif
 if has('gui_macvim')
     let g:airline_powerline_fonts = 1
 endif
+
+" JetBrains Mono 2.242 doesn't support the default powerline symbol ' :'
+let g:airline_symbols.colnr = ' ℅:'
+" Modify the default z section to include '%c%V' to display column and virtual
+" column number, like `:set ruler` does
+" let g:airline_section_z = airline#section#create(['windowswap', 'obsession', '%p%%', 'linenr', 'maxlinenr', 'colnr'])
+let g:airline_section_z = airline#section#create(['windowswap', 'obsession', '%p%%', 'linenr', 'maxlinenr', g:airline_symbols.colnr.'%c%V'])
+
 
 let g:vim_markdown_formatter = 1
 let g:vim_markdown_folding_level = 3

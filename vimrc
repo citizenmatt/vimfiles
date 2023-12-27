@@ -183,11 +183,16 @@ if &t_Co > 2 || has("gui_running")
   hi! link IncSearch PMenuSel
   hi clear SpellBad
   hi SpellBad cterm=underline gui=undercurl
-  hi NonText guifg=darkgrey " wordwrap, whitespace, etc.
+  " wordwrap, whitespace, etc.
+  hi NonText guifg=darkgrey
   " Make the line number gutter a bit more distinctive
   hi LineNr guibg=#24222a
+  " If the current language has an IM, change the cursor colour。 Applies to
+  " both text area and cmdline
+  hi CursorIM guibg=Yellow
   let g:airline_theme='onehalfdark'
 endif
+
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -228,13 +233,10 @@ if has("autocmd")
 endif " has("autocmd")
 
 setlocal spell spelllang=en_gb
+set spelloptions+=camel
 set spellsuggest=5
 autocmd BufRead,BufNewFile * setlocal spell
-autocmd FileType startify setlocal nospell
-autocmd FileType help setlocal nospell
-" From https://github.com/teranex/dotvim/blob/576680a9f8086f185856c8ab1b9b01ea016f05e9/vimrc#L440
-" the following line makes vim ignore camelCase and CamelCase words so they are not highlighted as spelling mistakes
-autocmd Syntax * syn match CamelCase "\(\<\|_\)\%(\u\l*\)\{2,}\(\>\|_\)\|\<\%(\l\l*\)\%(\u\l*\)\{1,}\>" transparent containedin=.*Comment.*,.*String.*,VimwikiLink contains=@NoSpell contained
+autocmd FileType startify,help,log setlocal nospell
 
 " syntastic
 set statusline+=%#warningmsg#

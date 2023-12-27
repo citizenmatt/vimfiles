@@ -139,6 +139,11 @@ set showmatch       " show matching bracket when entered
 
 set clipboard=unnamed,unnamedplus   " wire the system clipboard to the unnamed register
 
+set noimdisable     " Do not disable IME. That is, enable IM switching support
+" set noimcmdline   " Disable IME in cmdline (default)
+" set iminsert=2    " Use IM, not lmap (default)
+" set imsearch=-1   " Use iminsert
+
 " all alt to handle the menu shortcuts, and also vim command mappings
 " map alt+space to allow opening the system menu
 set winaltkeys=menu

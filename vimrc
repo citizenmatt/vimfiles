@@ -61,6 +61,7 @@ function! PackagerInit() abort
     call packager#add('terryma/vim-multiple-cursors')
     " call packager#add('mg979/vim-visual-multi')
     " call packager#add('gerw/vim-HiLinkTrace')
+    call packager#add('terryma/vim-expand-region')
 
     " I was planning on some updates. Can't remember what for now...
     call packager#add('citizenmatt/vim-signature')

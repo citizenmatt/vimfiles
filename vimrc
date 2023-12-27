@@ -74,6 +74,7 @@ function! PackagerInit() abort
     call packager#add('fsharp/vim-fsharp')
     call packager#add('PProvost/vim-ps1')
     call packager#add('plasticboy/vim-markdown')
+    call packager#add('mtdl9/vim-log-highlighting')
 
 endfunction
 

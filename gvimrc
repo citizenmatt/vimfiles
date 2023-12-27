@@ -37,3 +37,5 @@ set vb t_vb=
 " map <C-Tab> :tabnext<CR>
 " map <C-S-Tab> :tabprev<CR>
 " map <C-n> :tabnew<CR>
+
+set guioptions+=k
